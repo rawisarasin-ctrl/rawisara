@@ -62,4 +62,335 @@
             <div class="flex items-center justify-between mt-4 pt-3 border-t">
               <span class="text-sm font-medium">จำนวน:</span>
               <div class="flex items-center gap-2">
-                <button type="button" onclick="updateQty('sku01', -1)" class="w-8 h-8 rounded-full bg-stone-2
+                <button type="button" onclick="updateQty('sku01', -1)" class="w-8 h-8 rounded-full bg-stone-200 font-bold">-</button>
+                <input type="number" id="sku01" value="1" min="0" readonly class="w-10 text-center font-bold bg-transparent">
+                <button type="button" onclick="updateQty('sku01', 1)" class="w-8 h-8 rounded-full bg-stone-900 text-white font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SKU-02 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden flex flex-col">
+          <img src="./images/sku2.jpg" alt="Hazelnut Milk Chocolate" class="w-full h-52 object-cover bg-stone-200">
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold bg-amber-800 text-white px-2.5 py-0.5 rounded">SKU-02</span>
+                <span class="text-lg font-bold text-amber-900">฿175</span>
+              </div>
+              <h3 class="font-bold text-lg">Roasted Hazelnut Milk</h3>
+              <p class="text-xs text-stone-500 mt-1">มิลค์ช็อกโกแลตนุ่มละมุน ผสมเฮเซลนัทอบกรอบเต็มคำ</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t">
+              <span class="text-sm font-medium">จำนวน:</span>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="updateQty('sku02', -1)" class="w-8 h-8 rounded-full bg-stone-200 font-bold">-</button>
+                <input type="number" id="sku02" value="0" min="0" readonly class="w-10 text-center font-bold bg-transparent">
+                <button type="button" onclick="updateQty('sku02', 1)" class="w-8 h-8 rounded-full bg-stone-900 text-white font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SKU-03 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden flex flex-col">
+          <img src="./images/sku3.jpg" alt="Uji Matcha Chocolate" class="w-full h-52 object-cover bg-stone-200">
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold bg-emerald-800 text-white px-2.5 py-0.5 rounded">SKU-03</span>
+                <span class="text-lg font-bold text-amber-900">฿185</span>
+              </div>
+              <h3 class="font-bold text-lg">Uji Matcha White Choc</h3>
+              <p class="text-xs text-stone-500 mt-1">ไวท์ช็อกโกแลตแท้ผสมผงมัทฉะเกรดพิธีการจากญี่ปุ่น</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t">
+              <span class="text-sm font-medium">จำนวน:</span>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="updateQty('sku03', -1)" class="w-8 h-8 rounded-full bg-stone-200 font-bold">-</button>
+                <input type="number" id="sku03" value="0" min="0" readonly class="w-10 text-center font-bold bg-transparent">
+                <button type="button" onclick="updateQty('sku03', 1)" class="w-8 h-8 rounded-full bg-stone-900 text-white font-bold">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ฟอร์มกรอกข้อมูลจัดส่ง -->
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-md border border-stone-200 p-6 md:p-8">
+        <h2 class="text-xl font-bold mb-1">ข้อมูลสำหรับจัดส่งสินค้า</h2>
+        <p class="text-xs text-stone-500 mb-5">จัดส่งแบบควบคุมอุณหภูมิ (Cold Pack) ฟรีทุกออเดอร์</p>
+
+        <form id="checkoutForm" class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium mb-1">ชื่อ-นามสกุล ผู้รับ *</label>
+              <input type="text" id="custName" required placeholder="ระบุชื่อและนามสกุล" class="w-full border border-stone-300 rounded-xl p-3 text-sm">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">เบอร์โทรศัพท์ *</label>
+              <input type="tel" id="custPhone" required placeholder="08X-XXX-XXXX" class="w-full border border-stone-300 rounded-xl p-3 text-sm">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">ที่อยู่จัดส่ง (พร้อมรหัสไปรษณีย์) *</label>
+            <textarea id="custAddress" required rows="3" placeholder="บ้านเลขที่, ถนน, แขวง/ตำบล, เขต/อำเภอ, จังหวัด, รหัสไปรษณีย์" class="w-full border border-stone-300 rounded-xl p-3 text-sm"></textarea>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex justify-between items-center">
+            <div>
+              <p class="text-sm font-semibold text-stone-700">ยอดชำระสุทธิ</p>
+              <p id="summaryText" class="text-xs text-stone-500">SKU-01 x 1 แท่ง</p>
+            </div>
+            <span id="totalPrice" class="text-2xl font-bold text-amber-900">฿160</span>
+          </div>
+          <button type="submit" id="orderBtn" class="w-full bg-stone-900 hover:bg-stone-800 text-amber-100 font-bold py-4 rounded-xl transition">
+            ยืนยันการสั่งซื้อสินค้า
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- หน้าหลังบ้าน หยิบสินค้า แพ็คของ & พิมพ์ใบจ่าหน้า -->
+  <div id="adminSection" class="hidden max-w-6xl mx-auto p-4 md:p-8">
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4 mb-6">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900">📦 ระบบหยิบสินค้า & พิมพ์ใบจ่าหน้าพัสดุ</h2>
+        <p class="text-xs text-slate-500">ข้อมูลเชื่อมตรงกับ Google Sheets</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <select id="filterStatus" onchange="renderOrders()" class="border border-slate-300 rounded-xl px-3 py-2 text-sm bg-white">
+          <option value="ALL">แสดงทุกสถานะ</option>
+          <option value="รอแพ็คสินค้า" selected>เฉพาะรอแพ็คสินค้า</option>
+          <option value="แพ็คแล้ว">แพ็คแล้ว</option>
+        </select>
+        <button onclick="printAllPending()" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl text-sm font-semibold">
+          🖨️ พิมพ์ใบจ่าหน้า (รอแพ็คทั้งหมด)
+        </button>
+        <button onclick="fetchOrders()" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-sm font-semibold">
+          🔄 รีเฟรช
+        </button>
+      </div>
+    </div>
+
+    <div id="ordersContainer" class="space-y-4"></div>
+  </div>
+
+  <!-- พื้นที่สำหรับพิมพ์ใบจ่าหน้าพัสดุ -->
+  <div id="printContainer" class="hidden print:block bg-white text-black"></div>
+
+  <script>
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwdBSqwQIANhZEtC3Kni3xo-0qhMLTZs8AYQYsxjha-uekpJtjziYHz6_BnRBLO2hmr/exec';
+    const ADMIN_PASSWORD = '1234';
+
+    const PRICES = { sku01: 160, sku02: 175, sku03: 185 };
+    let allOrders = [];
+
+    function switchView(view) {
+      if (view === 'admin') {
+        document.getElementById('shopSection').classList.add('hidden');
+        document.getElementById('adminSection').classList.remove('hidden');
+        document.getElementById('btnShopView').classList.remove('hidden');
+        document.getElementById('btnAdminView').classList.add('hidden');
+        fetchOrders();
+      } else {
+        document.getElementById('shopSection').classList.remove('hidden');
+        document.getElementById('adminSection').classList.add('hidden');
+        document.getElementById('btnShopView').classList.add('hidden');
+        document.getElementById('btnAdminView').classList.remove('hidden');
+      }
+    }
+
+    function openAdmin() {
+      const pass = prompt('กรุณากรอกรหัสผ่านสำหรับเข้าสู่ระบบแพ็คสินค้า:');
+      if (pass === ADMIN_PASSWORD) {
+        switchView('admin');
+      } else if (pass !== null) {
+        alert('รหัสผ่านไม่ถูกต้องครับ');
+      }
+    }
+
+    function updateQty(id, delta) {
+      const input = document.getElementById(id);
+      let val = parseInt(input.value) + delta;
+      if (val < 0) val = 0;
+      input.value = val;
+      recalculate();
+    }
+
+    function recalculate() {
+      const q1 = parseInt(document.getElementById('sku01').value);
+      const q2 = parseInt(document.getElementById('sku02').value);
+      const q3 = parseInt(document.getElementById('sku03').value);
+      const total = (q1 * PRICES.sku01) + (q2 * PRICES.sku02) + (q3 * PRICES.sku03);
+      document.getElementById('totalPrice').innerText = '฿' + total.toLocaleString();
+
+      let items = [];
+      if (q1 > 0) items.push(`SKU-01 x ${q1}`);
+      if (q2 > 0) items.push(`SKU-02 x ${q2}`);
+      if (q3 > 0) items.push(`SKU-03 x ${q3}`);
+      document.getElementById('summaryText').innerText = items.length ? items.join(', ') : 'ยังไม่ได้เลือกสินค้า';
+      return { q1, q2, q3, total };
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { q1, q2, q3, total } = recalculate();
+      if (q1 + q2 + q3 === 0) return alert('กรุณาเลือกสินค้าอย่างน้อย 1 แท่งครับ');
+
+      const btn = document.getElementById('orderBtn');
+      btn.disabled = true;
+      btn.innerText = 'กำลังบันทึกคำสั่งซื้อ...';
+
+      const orderData = {
+        name: document.getElementById('custName').value.trim(),
+        phone: document.getElementById('custPhone').value.trim(),
+        address: document.getElementById('custAddress').value.trim(),
+        sku01: q1, sku02: q2, sku03: q3, totalPrice: total
+      };
+
+      try {
+        const response = await fetch(GAS_WEB_APP_URL, {
+          method: 'POST', redirect: 'follow',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(orderData)
+        });
+        const res = await response.json();
+        if (res.status === 'success') {
+          alert(`สั่งซื้อสำเร็จ! รหัสออเดอร์ของคุณคือ: ${res.orderId}`);
+          document.getElementById('checkoutForm').reset();
+          document.getElementById('sku01').value = 1;
+          document.getElementById('sku02').value = 0;
+          document.getElementById('sku03').value = 0;
+          recalculate();
+        }
+      } catch (error) {
+        alert('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาตรวจสอบการตั้งค่าสิทธิ์ใน Google Apps Script');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'ยืนยันการสั่งซื้อสินค้า';
+      }
+    });
+
+    async function fetchOrders() {
+      const container = document.getElementById('ordersContainer');
+      container.innerHTML = '<div class="text-center py-10 text-slate-500">กำลังดึงข้อมูลจาก Google Sheets...</div>';
+      try {
+        const res = await fetch(GAS_WEB_APP_URL);
+        allOrders = await res.json();
+        allOrders.reverse();
+        renderOrders();
+      } catch (err) {
+        container.innerHTML = '<div class="text-center py-10 text-red-600">โหลดข้อมูลไม่สำเร็จ ตรวจสอบสิทธิ์การเข้าถึง (Anyone) ใน Apps Script</div>';
+      }
+    }
+
+    function renderOrders() {
+      const container = document.getElementById('ordersContainer');
+      const filter = document.getElementById('filterStatus').value;
+      const filtered = allOrders.filter(o => filter === 'ALL' || o.Status === filter);
+
+      if (filtered.length === 0) {
+        container.innerHTML = '<div class="bg-white rounded-2xl p-10 text-center text-slate-400">ไม่มีรายการคำสั่งซื้อในหมวดหมู่นี้</div>';
+        return;
+      }
+
+      container.innerHTML = '';
+      filtered.forEach(order => {
+        const isPacked = order.Status === 'แพ็คแล้ว';
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl shadow-sm border border-slate-200 p-5 grid md:grid-cols-12 gap-4 items-center';
+        card.innerHTML = `
+          <div class="md:col-span-5 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-lg text-slate-900">${order.OrderID}</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-semibold ${isPacked ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${order.Status}</span>
+            </div>
+            <p class="text-xs text-slate-400">${order.Timestamp} | ยอดรวม: ฿${order.TotalPrice}</p>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <p class="text-xs font-bold text-slate-500 mb-1">📋 รายการหยิบสินค้าลงกล่อง:</p>
+              <ul class="text-sm font-semibold space-y-1">
+                ${order.SKU01_Qty > 0 ? `<li>• [SKU-01] 75% Dark : <span class="text-red-600 font-bold">${order.SKU01_Qty} แท่ง</span></li>` : ''}
+                ${order.SKU02_Qty > 0 ? `<li>• [SKU-02] Hazelnut Milk : <span class="text-red-600 font-bold">${order.SKU02_Qty} แท่ง</span></li>` : ''}
+                ${order.SKU03_Qty > 0 ? `<li>• [SKU-03] Uji Matcha : <span class="text-red-600 font-bold">${order.SKU03_Qty} แท่ง</span></li>` : ''}
+              </ul>
+            </div>
+          </div>
+          <div class="md:col-span-4 text-sm space-y-1 border-t md:border-t-0 md:border-l pt-3 md:pt-0 md:pl-4">
+            <p class="font-bold text-slate-900">ผู้รับ: ${order.CustomerName}</p>
+            <p class="text-slate-700 font-medium">โทร: ${order.Phone}</p>
+            <p class="text-slate-600 text-xs leading-relaxed">${order.Address}</p>
+            ${order.TrackingNo ? `<p class="text-xs text-blue-600 font-bold pt-1">เลขพัสดุ: ${order.TrackingNo}</p>` : ''}
+          </div>
+          <div class="md:col-span-3 flex flex-col gap-2 border-t md:border-t-0 md:border-l pt-3 md:pt-0 md:pl-4">
+            <button onclick='printSingleLabel(${JSON.stringify(order)})' class="w-full bg-slate-800 hover:bg-slate-900 text-white py-2 px-3 rounded-xl text-xs font-semibold">
+              🖨️ พิมพ์ใบจ่าหน้าพัสดุ
+            </button>
+            ${!isPacked ? `
+              <input type="text" id="track-${order.OrderID}" placeholder="เลขพัสดุ (ถ้ามี)" class="w-full border border-slate-300 rounded-xl px-3 py-1.5 text-xs">
+              <button onclick="confirmPack('${order.OrderID}')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-3 rounded-xl text-xs font-semibold">
+                ✅ ยืนยันแพ็คสินค้าเสร็จสิ้น
+              </button>
+            ` : `<div class="text-center text-xs text-emerald-600 font-bold py-2">บันทึกสถานะแพ็คแล้ว</div>`}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function generateLabelHTML(order) {
+      let itemsList = [];
+      if (order.SKU01_Qty > 0) itemsList.push(`SKU-01 (${order.SKU01_Qty})`);
+      if (order.SKU02_Qty > 0) itemsList.push(`SKU-02 (${order.SKU02_Qty})`);
+      if (order.SKU03_Qty > 0) itemsList.push(`SKU-03 (${order.SKU03_Qty})`);
+
+      return `
+        <div class="shipping-label">
+          <div style="border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 10px;">
+            <div style="font-size: 13px; font-weight: bold;">ผู้ส่ง (FROM): CHOCO CRAFT THAILAND</div>
+            <div style="font-size: 11px;">99/9 อาคารคราฟต์ ถ.สุขุมวิท กรุงเทพฯ 10110 | โทร: 089-123-4567</div>
+          </div>
+          <div style="border-bottom: 2px dashed #000; padding-bottom: 12px; margin-bottom: 10px;">
+            <div style="font-size: 12px;">กรุณานำส่ง (TO):</div>
+            <div style="font-size: 18px; font-weight: bold; margin: 4px 0;">${order.CustomerName}</div>
+            <div style="font-size: 15px; font-weight: bold;">โทร: ${order.Phone}</div>
+            <div style="font-size: 14px; margin-top: 6px; line-height: 1.4;">${order.Address}</div>
+          </div>
+          <div style="font-size: 12px; line-height: 1.5;">
+            <div><strong>Order ID:</strong> ${order.OrderID}</div>
+            <div><strong>สินค้าในกล่อง:</strong> ${itemsList.join(' / ')}</div>
+            <div style="margin-top: 8px; padding: 4px; border: 1px solid #000; text-align: center; font-weight: bold;">
+              ❄️ สินค้าควบคุมอุณหภูมิ / ระวังละลาย
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function printSingleLabel(order) {
+      document.getElementById('printContainer').innerHTML = generateLabelHTML(order);
+      window.print();
+    }
+
+    function printAllPending() {
+      const pending = allOrders.filter(o => o.Status === 'รอแพ็คสินค้า');
+      if (pending.length === 0) return alert('ไม่มีออเดอร์สถานะ "รอแพ็คสินค้า" ครับ');
+      document.getElementById('printContainer').innerHTML = pending.map(generateLabelHTML).join('');
+      window.print();
+    }
+
+    async function confirmPack(orderId) {
+      const trackingNo = document.getElementById(`track-${orderId}`).value.trim();
+      if (!confirm(`ยืนยันว่าแพ็คออเดอร์ ${orderId} เรียบร้อยแล้ว?`)) return;
+
+      await fetch(GAS_WEB_APP_URL, {
+        method: 'POST', redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ action: 'packOrder', orderId: orderId, trackingNo: trackingNo })
+      });
+      fetchOrders();
+    }
+  </script>
+</body>
+</html>
